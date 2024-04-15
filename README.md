@@ -10,7 +10,7 @@ pip install heiwa4126.hello
 
 ## 使用方法
 
-このパッケージは、FizzBuzz のジェネレータを提供します。以下のように使用できます:
+このパッケージは、以下のように使用できます:
 
 ```python
 from heiwa4126.hello import hello
@@ -19,3 +19,12 @@ print(hello())
 ```
 
 このコードは、"hello" を適切に出力します。
+
+またパッケージをインストールすると コマンド `heiwa4126_hello` も
+インストールされます。
+
+```sh
+heiwa4126_hello
+```
+
+このコマンドは、"hello" を適切に出力します。
