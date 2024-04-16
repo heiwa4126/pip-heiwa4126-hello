@@ -1,5 +1,5 @@
 [build-system]
-requires = [ "setuptools",]
+requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -7,8 +7,8 @@ name = "heiwa4126.hello"
 version = "0.0.6"
 description = "A simple hello function."
 readme = "README.md"
-keywords = [ "demo", "hello",]
-classifiers = [ "License :: OSI Approved :: MIT License", "Operating System :: OS Independent", "Programming Language :: Python :: 3",]
+keywords = ["demo", "hello"]
+classifiers = ["License :: OSI Approved :: MIT License", "Operating System :: OS Independent", "Programming Language :: Python :: 3"]
 requires-python = ">=3.6"
 dependencies = []
 [[project.authors]]
@@ -19,7 +19,7 @@ email = "heiwa4126@gmail.com"
 file = "LICENSE"
 
 [project.optional-dependencies]
-dev = [ "build", "twine", "invoke", "packaging", "ruff", "toml",]
+dev = ["build", "invoke", "packaging", "ruff", "toml", "twine"]
 
 [project.scripts]
 heiwa4126_hello = "heiwa4126.hello:hello"
@@ -34,10 +34,7 @@ target-version = "py39"
 line-length = 119
 
 [tool.ruff.lint]
-select = [ "E", "F", "I", "Q", "W",]
-
-[tool.setuptools.package-dir]
-"" = "src"
+select = ["E", "F", "I", "Q", "W"]
 
 [tool.ruff.lint.flake8-quotes]
 inline-quotes = "double"
@@ -45,6 +42,9 @@ inline-quotes = "double"
 [tool.ruff.lint.isort]
 force-single-line = false
 
+[tool.setuptools.package-dir]
+"" = "src"
+
 [tool.setuptools.packages.find]
-where = [ "src/",]
-include = [ "heiwa4126.hello",]
+where = ["src/"]
+include = ["heiwa4126.hello"]

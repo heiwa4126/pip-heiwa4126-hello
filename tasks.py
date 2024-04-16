@@ -3,8 +3,9 @@ import sys
 
 from invoke import task
 
-os.environ["PYTHONPATH"] = os.path.abspath(os.path.join(os.path.dirname(__file__), "src"))
-# ./src の下に置くのをやめれば、これは不要
+## os.environ["PYTHONPATH"] = os.path.abspath(os.path.join(os.path.dirname(__file__), "src"))
+## ./src の下に置くのをやめれば、これは不要
+## `pip install -e .` で linkにしたので、これは不要
 
 PYTHON = "py" if sys.platform == "win32" else "python3"
 PIP = "pip" if sys.platform == "win32" else "pip3"
@@ -42,7 +43,7 @@ def cli(c):
 def test(c):
     """Run unit tests"""
     if sys.platform == "win32":
-        c.run(f"{PYTHON} -m unittest discover .\\tests -p test_*.py")
+        c.run(f'{PYTHON} -m unittest discover .\\tests -p "test_*.py"')
     else:
         c.run(f"{PYTHON} -m unittest discover ./tests -p 'test_*.py'")
 
@@ -58,26 +59,28 @@ def build(c):
     c.run(f"{PYTHON} -m build")
 
 
-@task
-def install(c):
-    """Install package locally"""
-    os.environ["PYTHONPATH"] = ""
-    c.run(f"{PIP} install -U dist/*.whl")
+# @task
+# def install(c):
+#     """Install package locally"""
+#     os.environ["PYTHONPATH"] = ""
+#     c.run(f"{PIP} install -U dist/*.whl")
 
 
-@task
-def uninstall(c):
-    """Uninstalls package locally"""
-    os.environ["PYTHONPATH"] = ""
-    c.run(f"{PIP} uninstall {PACKAGENAME} --yes")
+# @task
+# def uninstall(c):
+#     """Uninstalls package locally"""
+#     os.environ["PYTHONPATH"] = ""
+#     c.run(f"{PIP} uninstall {PACKAGENAME} --yes")
 
 
 @task
 def reinstall(c):
-    """uninstall, build and install"""
-    uninstall(c)
-    build(c)
-    install(c)
+    """re-link myself"""
+    c.run(f"{PIP} install --use-pep517 -e .")
+    # """uninstall, build and install"""
+    # uninstall(c)
+    # build(c)
+    # install(c)
 
 
 @task
