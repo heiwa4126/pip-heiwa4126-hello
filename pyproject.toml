@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "heiwa4126.hello"
-version = "0.0.2"
+version = "0.0.3"
 description = "A simple hello generator"
 readme = "README.md"
 keywords = [ "hello", "demo",]
