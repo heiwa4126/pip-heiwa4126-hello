@@ -1,6 +1,7 @@
-# heiwa4126.hello
+# heiwa4126.hello (pip-heiwa4126-hello)
 
-`heiwa4126.hello` は 'hello' を返す関数 `hello()` を実装します。
+`heiwa4126.fizzbuzz` は Python 用の パッケージです。
+'hello' を返す関数 `hello()` を実装します。
 
 ## インストール
 

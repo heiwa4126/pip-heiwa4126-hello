@@ -137,8 +137,9 @@ def release(c):
 
 @task
 def push(c):
-    """`git push --follow-tags`"""
-    c.run("git push --follow-tags")
+    """`git push & --tags`"""
+    c.run("git push")
+    c.run("git push --tags")
 
 
 @task
