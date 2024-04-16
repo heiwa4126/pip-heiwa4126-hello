@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "heiwa4126.hello"
-version = "0.0.5"
+version = "0.0.6"
 description = "A simple hello function."
 readme = "README.md"
 keywords = [ "demo", "hello",]
@@ -33,18 +33,18 @@ Homepage = "https://github.com/heiwa4126/pip-heiwa4126-hello#readme"
 target-version = "py39"
 line-length = 119
 
-[tool.setuptools.package-dir]
-"" = "src"
-
 [tool.ruff.lint]
 select = [ "E", "F", "I", "Q", "W",]
 
-[tool.setuptools.packages.find]
-where = [ "src/",]
-include = [ "heiwa4126.hello",]
+[tool.setuptools.package-dir]
+"" = "src"
 
 [tool.ruff.lint.flake8-quotes]
 inline-quotes = "double"
 
 [tool.ruff.lint.isort]
 force-single-line = false
+
+[tool.setuptools.packages.find]
+where = [ "src/",]
+include = [ "heiwa4126.hello",]
