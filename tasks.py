@@ -136,7 +136,7 @@ def release(c):
         toml.dump(config, f)
 
     # Commit the version change
-    c.run(f"git commit -m 'Bump version to {new_version}' pyproject.toml")
+    c.run(f'git commit -m "Bump version to {new_version}" pyproject.toml')
 
     # Tag the commit with the new version
     c.run(f"git tag {new_version}")
