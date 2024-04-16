@@ -70,6 +70,7 @@ def uninstall(c):
 
 @task
 def reinstall(c):
+    """uninstall, build and install"""
     uninstall(c)
     build(c)
     install(c)
@@ -77,26 +78,31 @@ def reinstall(c):
 
 @task
 def check(c):
+    """`ruff check .`"""
     c.run("ruff check .")
 
 
 @task
 def fix(c):
+    """`ruff check . --fix`"""
     c.run("ruff check . --fix")
 
 
 @task
 def show(c):
+    """`pip show package`"""
     c.run(f"{PIP} show {PACKAGENAME}")
 
 
 @task
 def listwhl(c):
+    """`zipinfo dist/*.whl`"""
     c.run("zipinfo dist/*.whl")
 
 
 @task
 def listtarball(c):
+    """`tar ztvf dist/*.tar.gz`"""
     c.run("tar ztvf dist/*.tar.gz")
 
 
@@ -131,16 +137,19 @@ def release(c):
 
 @task
 def push(c):
+    """`git push --follow-tags`"""
     c.run("git push --follow-tags")
 
 
 @task
 def testpypi(c):
+    """Upload to testpypi."""
     build(c)
     c.run(f"{PYTHON} -m twine upload --repository testpypi dist/*")
 
 
 @task
 def pypi(c):
+    """Upload to pypi."""
     build(c)
     c.run(f"{PYTHON} -m twine upload --repository pypi dist/*")
