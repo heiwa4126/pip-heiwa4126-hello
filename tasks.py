@@ -7,7 +7,7 @@ from invoke import task
 ## ./src の下に置くのをやめれば、これは不要
 ## `pip install -e .` で linkにしたので、これは不要
 
-PYTHON = "py" if sys.platform == "win32" else "python3"
+PYTHON = "python" if sys.platform == "win32" else "python3"
 PIP = "pip" if sys.platform == "win32" else "pip3"
 VENVPIP = ".venv\\Scripts\\pip.exe" if sys.platform == "win32" else ".venv/bin/pip"
 
