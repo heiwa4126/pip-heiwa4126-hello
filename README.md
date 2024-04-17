@@ -43,7 +43,7 @@ YOUR_NAMESPACE="お好みの名前空間"
 YOUR_PACKAGE="お好みのパッケージ名"
 find . -type f | xargs perl -i.bak -pe "s/heiw4126/$YOUR_NAMESPACE/g;s/hello/$YOUR_PACKAGE/g;"
 mv src/heiwa4126 "src/$YOUR_NAMESPACE"
-mv "src/$YOUR_NAMESPACE/hello.py" "src/$YOUR_NAMESPACE/$YOUR_PACKAGE"
+mv "src/$YOUR_NAMESPACE/hello.py" "src/$YOUR_NAMESPACE/${YOUR_PACKAGE}.py"
 ```
 
 のようにして置き換えて使ってください。
