@@ -47,3 +47,4 @@ mv "src/$YOUR_NAMESPACE/hello.py" "src/$YOUR_NAMESPACE/${YOUR_PACKAGE}.py"
 ```
 
 のようにして置き換えて使ってください。
+(上のスクリプトは Windows では動きません)
