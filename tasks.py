@@ -7,9 +7,14 @@ from invoke import task
 ## ./src の下に置くのをやめれば、これは不要
 ## `pip install -e .` で linkにしたので、これは不要
 
-PYTHON = "python" if sys.platform == "win32" else "python3"
-PIP = "pip" if sys.platform == "win32" else "pip3"
-VENVPIP = ".venv\\Scripts\\pip.exe" if sys.platform == "win32" else ".venv/bin/pip"
+PYTHON = "python3"
+PIP = "pip3"
+VENVPIP = ".venv/bin/pip"
+
+if sys.platform == "win32":
+    PYTHON = "python"
+    PIP = "pip"
+    VENVPIP = ".venv\\Scripts\\pip.exe"
 
 SCOPE = "heiwa4126"
 PACKAGE = "hello"
@@ -35,8 +40,8 @@ def example(c):
 
 @task
 def cli(c):
-    """Run cli.py code"""
-    c.run(f"{PYTHON} -m {SCOPE}.{PACKAGE}.cli 15")
+     """Run cli.py code"""
+     c.run(f"{PYTHON} -m {SCOPE}.{PACKAGE}.cli")
 
 
 @task
