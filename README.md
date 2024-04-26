@@ -1,50 +1,38 @@
 # heiwa4126.hello (pip-heiwa4126-hello)
 
-`heiwa4126.fizzbuzz` は Python 用の パッケージです。
-'hello' を返す関数 `hello()` を実装します。
+[![PyPI - Version](https://img.shields.io/pypi/v/heiwa4126-hello.svg)](https://pypi.org/project/heiwa4126-hello)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/heiwa4126-hello.svg)](https://pypi.org/project/heiwa4126-hello)
 
-## インストール
+---
 
-```sh
+## Installation
+
+```bash
 pip install heiwa4126.hello
+# or
+pip install heiwa4126-hello
+pip install heiwa4126_hello
+pip install "heiwa4126 hello"
 ```
 
-(名前空間パッケージなので、それとわかるよう区切りに `.` を使っています)
+## Usage
 
-## 使用方法
-
-このパッケージは、以下のように使用できます:
+This package can be used as follows:
 
 ```python
 from heiwa4126.hello import hello
-
 print(hello())
 ```
 
-このコードは、"hello" を適切に出力します。
-
-またパッケージをインストールすると コマンド `heiwa4126_hello` も
-インストールされます。
+This code will properly output "hello".
+Additionally, when the package is installed, the command `heiwa4126_hello` is also installed.
 
 ```sh
-heiwa4126_hello
-# or
-heiwa4126_hello2
+heiwa4126_hello # or heiwa4126_hello2
 ```
 
-このコマンドは、"hello" を適切に出力します。2 つの違いは
-[pyproject.toml](pyproject.toml)
-の project.scripts のところを参照。
+This command will properly output "hello".
 
-## このパッケージはテンプレートです
+## License
 
-```sh
-YOUR_NAMESPACE="お好みの名前空間"
-YOUR_PACKAGE="お好みのパッケージ名"
-find . -type f | xargs perl -i.bak -pe "s/heiw4126/$YOUR_NAMESPACE/g;s/hello/$YOUR_PACKAGE/g;"
-mv src/heiwa4126 "src/$YOUR_NAMESPACE"
-mv "src/$YOUR_NAMESPACE/hello.py" "src/$YOUR_NAMESPACE/${YOUR_PACKAGE}.py"
-```
-
-のようにして置き換えて使ってください。
-(上のスクリプトは Windows では動きません)
+`heiwa4126-hello` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
