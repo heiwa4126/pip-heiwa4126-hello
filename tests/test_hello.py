@@ -1,36 +1,20 @@
-import unittest
-
 from heiwa4126.hello import Hello, hello
 
 
-class TestHello(unittest.TestCase):
+def test_hello():
     """
-    A test case for the hello function.
+    Test case for the hello function.
     """
-
-    def test_hello(self):
-        """
-        Test case for the hello function.
-        """
-        result = hello()
-        expected = "hello"
-        self.assertEqual(result, expected)
+    result = hello()
+    expected = "hello"
+    assert result == expected
 
 
-class TestHelloClass(unittest.TestCase):
+def test_hello_class():
     """
-    A test case for the hello function.
+    Test case for the Hello class.
     """
-
-    def test_hello_class(self):
-        """
-        Test case for the Hello class.
-        """
-        h = Hello("hello")
-        result = h.say()
-        expected = "hello hello"
-        self.assertEqual(result, expected)
-
-
-if __name__ == "__main__":
-    unittest.main()
+    h = Hello("hello")
+    result = h.say()
+    expected = "hello hello"
+    assert result == expected

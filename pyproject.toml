@@ -21,7 +21,7 @@ classifiers = [
   "Operating System :: OS Independent",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
-  # "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: Implementation :: CPython",
@@ -46,8 +46,8 @@ path = "src/heiwa4126/hello/__about__.py"
 
 [tool.hatch.envs.default]
 dependencies = [
-  # "coverage[toml]>=6.5",
-  # "pytest",
+  "coverage[toml]>=6.5",
+  "pytest",
   "ruff",
 ]
 
@@ -56,6 +56,36 @@ include = [ "/src" ]
 
 [tool.hatch.build.targets.wheel]
 packages = [ "src/heiwa4126" ]
+
+
+[tool.hatch.envs.default.scripts]
+# test = "python -m unittest discover tests -p \"test_*.py\""
+ex0 = "python examples/ex0.py"
+ex1 = "python examples/ex1.py"
+cli = "python src/heiwa4126/fizzbuzz2/cli.py 15"
+check = "ruff check ."
+fix = "ruff check . --fix"
+listwhl = "zipinfo dist/*.whl"
+listtarball = "tar ztvf dist/*.tar.gz"
+test = "pytest {args:tests}"
+test-cov = "coverage run -m pytest {args:tests}"
+cov-report = [
+  "- coverage combine",
+  "coverage report",
+]
+cov = [
+  "cov-report",
+  "test-cov",
+]
+
+[[tool.hatch.envs.all.matrix]]
+python = [
+  "3.10",
+  "3.11",
+  "3.12",
+  "3.8",
+  "3.9",
+]
 
 [tool.ruff]
 target-version = "py39"
@@ -76,34 +106,6 @@ inline-quotes = "double"
 [tool.ruff.lint.isort]
 force-single-line = false
 
-[tool.hatch.envs.default.scripts]
-test = "python -m unittest discover tests -p \"test_*.py\""
-ex0 = "python examples/ex0.py"
-ex1 = "python examples/ex1.py"
-cli = "python src/heiwa4126/fizzbuzz2/cli.py 15"
-check = "ruff check ."
-fix = "ruff check . --fix"
-listwhl = "zipinfo dist/*.whl"
-listtarball = "tar ztvf dist/*.tar.gz"
-# test = "pytest {args:tests}"
-# test-cov = "coverage run -m pytest {args:tests}"
-# cov-report = [
-#   "- coverage combine",
-#   "coverage report",
-# ]
-# cov = [
-#   "cov-report",
-#   "test-cov",
-# ]
-
-[[tool.hatch.envs.all.matrix]]
-python = [
-  "3.10",
-  "3.11",
-  # "3.12",
-  "3.8",
-  "3.9",
-]
 
 # [tool.hatch.envs.types]
 # dependencies = [
